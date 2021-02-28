@@ -1,0 +1,37 @@
+img {
+  max-width: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.reset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.horizontal li {
+  display: inline-block;
+}
+
+.pokedex-layout {
+  display: flex;
+}
+
+.section-scrollable {
+  margin-right: 20px;
+  width: 65%;
+}
+
+.aside-fixed {
+  width: 35%;
+}
+
+.pokemon-details {
+  background: #dfd1c5;
+  border: 20px solid #FF0000;
+  color: #000000;
+  padding: 20px;
+}
