@@ -2,6 +2,22 @@ import React from 'react';
 import './App.css';
 import ClickablePokemon from './ClickablePokemon';
 
+class DetailWindow extends React.Component {
+  render() {
+    return (
+      <aside className="aside-fixed pokemon-details">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png" alt="Growlithe" />
+        <h2>#058 Growlithe</h2>
+        <dl>
+          <dt>Type</dt>
+          <dd>Fire</dd>
+        </dl>
+        <p>Very protective of its territory. It will bark andbite to repel intruders from its space.</p>
+      </aside>
+    )
+  }
+}
+
 class App extends React.Component {
   render() {
     const POKEMON = [
@@ -22,15 +38,7 @@ class App extends React.Component {
               ))}
             </ul>
           </section>
-          <aside className="aside-fixed pokemon-details">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png" alt="Growlithe" />
-            <h2>#058 Growlithe</h2>
-            <dl>
-              <dt>Type</dt>
-              <dd>Fire</dd>
-            </dl>
-            <p>Very protective of its territory. It will bark andbite to repel intruders from its space.</p>
-          </aside>
+          <DetailWindow />
         </div>
       </div>
     );
