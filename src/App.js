@@ -1,19 +1,6 @@
 import React from 'react';
 import './App.css';
-
-const openDetails = (id) => {
-  console.log('open the details' + id);
-};
-
-function ClickablePokemon(props) {
-  return (
-    <li>
-      <button onClick={() => openDetails(props.id)}>
-        <img src={props.spriteUrl} alt={props.name} />
-      </button>
-    </li>
-  )
-};
+import ClickablePokemon from './ClickablePokemon';
 
 class App extends React.Component {
   render() {
