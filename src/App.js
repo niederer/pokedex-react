@@ -1,6 +1,21 @@
 import './App.css';
 
+function ClickablePokemon(props) {
+  return (
+    <li>
+      <button>
+        <img src={props.spriteUrl} alt={props.name} />
+      </button>
+    </li>
+  )
+};
+
 function App() {
+  const POKEMON = [
+    { id: 58, name: 'Growlithe', spriteUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png' },
+    { id: 59, name: 'Arcanine', spriteUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png' }
+  ];
+  
   return (
     <div className="App">
       <header>
@@ -9,16 +24,9 @@ function App() {
       <div className="pokedex-layout">
         <section className="section-scrollable">
           <ul className="reset horizontal pokemon-list">
-            <li>
-              <button>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png" alt="Growlithe" />
-              </button>
-            </li>
-            <li>
-              <button>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png" alt="Arcanine" />
-              </button>
-            </li>
+            {POKEMON.map(poke => (
+              <ClickablePokemon key={poke.id} {...poke} />
+            ))}
           </ul>
         </section>
         <aside className="aside-fixed pokemon-details">
