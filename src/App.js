@@ -19,6 +19,10 @@ class DetailWindow extends React.Component {
 }
 
 class App extends React.Component {
+  handleOpenDetails(id) {
+    console.log('outercomponent ' + id);
+  };
+
   render() {
     const POKEMON = [
       { id: 58, name: 'Growlithe', spriteUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png' },
@@ -34,7 +38,7 @@ class App extends React.Component {
           <section className="section-scrollable">
             <ul className="reset horizontal pokemon-list">
               {POKEMON.map(poke => (
-                <ClickablePokemon key={poke.id} {...poke} />
+                <ClickablePokemon key={poke.id} onButtonClick={this.handleOpenDetails} {...poke} />
               ))}
             </ul>
           </section>

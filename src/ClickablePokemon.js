@@ -1,15 +1,24 @@
-const openDetails = (id) => {
-  console.log('open the details' + id);
-};
+import React from 'react';
 
-function ClickablePokemon(props) {
-  return (
-    <li>
-    <button onClick={() => openDetails(props.id)}>
-        <img src={props.spriteUrl} alt={props.name} />
-    </button>
-    </li>
-  )
+class ClickablePokemon extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  };
+
+  handleClick(id) {
+    this.props.onButtonClick(id);
+  };
+
+  render() {
+    return (
+      <li>
+        <button onClick={() => this.handleClick(this.props.id)}>
+          <img src={this.props.spriteUrl} alt={this.props.name} />
+        </button>
+      </li>
+    )
+  }
 };  
 
 export default ClickablePokemon;
