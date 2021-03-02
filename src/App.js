@@ -4,6 +4,10 @@ import ClickablePokemon from './ClickablePokemon';
 
 class DetailWindow extends React.Component {
   render() {
+    if(!this.props.show) {
+      return null;
+    }
+
     return (
       <aside className="aside-fixed pokemon-details">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png" alt="Growlithe" />
@@ -19,8 +23,15 @@ class DetailWindow extends React.Component {
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleOpenDetails = this.handleOpenDetails.bind(this);
+    this.state = { detailsOpen: false };
+  };
+
   handleOpenDetails(id) {
     console.log('outercomponent ' + id);
+    this.setState({ detailsOpen: true });
   };
 
   render() {
@@ -42,7 +53,7 @@ class App extends React.Component {
               ))}
             </ul>
           </section>
-          <DetailWindow />
+          <DetailWindow show={this.state.detailsOpen} />
         </div>
       </div>
     );
