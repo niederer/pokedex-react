@@ -11,7 +11,7 @@ class DetailWindow extends React.Component {
     return (
       <aside className="aside-fixed pokemon-details">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png" alt="Growlithe" />
-        <h2>#058 Growlithe</h2>
+        <h2>#{this.props.expandedPokemon.id} {this.props.expandedPokemon.name}</h2>
         <dl>
           <dt>Type</dt>
           <dd>Fire</dd>
@@ -26,16 +26,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleOpenDetails = this.handleOpenDetails.bind(this);
-    this.state = { detailsOpen: false };
+    this.getPokemonById = this.getPokemonById.bind(this);
+    this.state = { detailsOpen: false, activePokemon: [] };
   };
 
   handleOpenDetails(id) {
-    console.log('outercomponent ' + id);
-    this.setState({ detailsOpen: true });
+    const openPokemon = this.state.activePokemon;
+    if (!(openPokemon === id)) {
+      this.getPokemonById(id);
+    } else {
+      return null;
+    }
+  };
+
+  getPokemonById(id) {
+    let selectedPoke = this.props.pokemon.find(poke => poke.id === id);
+    this.setState({ detailsOpen: true, activePokemon: selectedPoke })
   };
 
   render() {
-
     return (
       <div className="App">
         <header>
@@ -49,7 +58,7 @@ class App extends React.Component {
               ))}
             </ul>
           </section>
-          <DetailWindow show={this.state.detailsOpen} />
+          <DetailWindow show={this.state.detailsOpen} expandedPokemon={this.state.activePokemon} />
         </div>
       </div>
     );
