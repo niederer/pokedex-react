@@ -5,9 +5,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const POKEMON = [
+  { id: 58, name: 'Growlithe', spriteUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png' },
+  { id: 59, name: 'Arcanine', spriteUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png' }
+];
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App pokemon={POKEMON}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

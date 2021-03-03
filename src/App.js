@@ -35,10 +35,6 @@ class App extends React.Component {
   };
 
   render() {
-    const POKEMON = [
-      { id: 58, name: 'Growlithe', spriteUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png' },
-      { id: 59, name: 'Arcanine', spriteUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png' }
-    ];
 
     return (
       <div className="App">
@@ -48,7 +44,7 @@ class App extends React.Component {
         <div className="pokedex-layout">
           <section className="section-scrollable">
             <ul className="reset horizontal pokemon-list">
-              {POKEMON.map(poke => (
+              {this.props.pokemon.map(poke => (
                 <ClickablePokemon key={poke.id} onButtonClick={this.handleOpenDetails} {...poke} />
               ))}
             </ul>
