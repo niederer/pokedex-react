@@ -30,6 +30,8 @@ ul.horizontal li {
 }
 
 .aside-fixed {
+  position: fixed;
+  right: 20px;
   width: 35%;
 }
 
