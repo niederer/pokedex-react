@@ -77,3 +77,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 + Hydrate Pokemon descriptions
 + Evolution chains
 + This Pokemon appears in.... (game titles)
++ Prettier UI
++ SCSS
