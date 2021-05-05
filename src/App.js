@@ -20,7 +20,7 @@ class App extends React.Component {
 
   async componentDidMount() {
     const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
-    const extendedUrl = baseUrl + "?limit=60";
+    const extendedUrl = baseUrl + "?limit=151";
 
     let response = await axios.get(extendedUrl);
     let results = response.data.results;
