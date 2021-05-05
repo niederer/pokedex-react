@@ -14,7 +14,7 @@ class ClickablePokemon extends React.Component {
     return (
       <li>
         <button onClick={() => this.handleClick(this.props.id)}>
-          <img src={this.props.spriteUrl} alt={this.props.name} />
+          <img src={this.props.sprites.front_default} alt={this.props.name} />
         </button>
       </li>
     )

@@ -8,11 +8,13 @@ class DetailWindow extends React.Component {
 
     return (
       <aside className="aside-fixed pokemon-details">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png" alt="Growlithe" />
-        <h2>#{this.props.expandedPokemon.id} {this.props.expandedPokemon.name}</h2>
+        <img src={this.props.expandedPokemon.sprites.other['official-artwork'].front_default} alt={this.props.expandedPokemon.name} />
+        <h2 className="capitalize">#{this.props.expandedPokemon.id} {this.props.expandedPokemon.name}</h2>
         <dl>
           <dt>Type</dt>
-          <dd>Fire</dd>
+          {this.props.expandedPokemon.types.map(variety => (
+            <dd key={variety.slot} className="capitalize">{variety.type.name}</dd>
+          ))}
         </dl>
         <p>Very protective of its territory. It will bark andbite to repel intruders from its space.</p>
       </aside>
