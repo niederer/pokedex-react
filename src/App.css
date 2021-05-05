@@ -16,6 +16,10 @@ ul.horizontal li {
   display: inline-block;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .pokedex-layout {
   display: flex;
 }
